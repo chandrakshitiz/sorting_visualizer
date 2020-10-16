@@ -39,4 +39,4 @@ function draw(arr_obj)
         ctx.fillRect(x,y,iwd,arr[i]);
     }
 }
-export default draw;
+export {draw,updateCanvasAttributes};

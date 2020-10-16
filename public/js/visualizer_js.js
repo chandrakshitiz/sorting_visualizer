@@ -1,21 +1,37 @@
-import fun from './any.js';
-import {draw} from './draw.js';
+import {draw,updateCanvasAttributes} from './draw.js';
+import bubble_sort from '../algorithms/bubble_sort.js'
 
-$("#myCanvas").attr("width",$("#myCanvas")[0].clientWidth)
-console.log("HT=",$("#myCanvas")[0].clientHeight);
-var m=10;
-var c=$("#myCanvas")[0];
-console.log(c);
-$("#btn").click(function(){
-    console.log("clicked ",m);
-    draw(m);
-    m=m+10;
+function rndInt(min,max)
+{
+    return Math.floor(Math.random()*(max-min+1))+min;
+}
+
+function arrayGenerator(min,max,size)
+{
+    var arr=[];
+    var colors=[];
+    for(var i=0;i<size;i++)
+    {
+        arr.push(rndInt(min,max));
+        colors.push("black");
+    }
+    console.log(arr);
+    return {arr:arr,colors:colors};
+}
+
+$(document).ready(function(){
+
+    var arr_obj=arrayGenerator(10,1000,100);
+    draw(arr_obj);
+    $("#sl").change(function(){
+        arr_obj=arrayGenerator(10,1000,parseInt($("#sl").val()));
+        draw(arr_obj);
+    })
+    $("#btn").click(function(){
+        bubble_sort(arr_obj);
+    })
+    $(window).resize(function(){
+        updateCanvasAttributes();
+        draw(arr_obj);
+    })
 })
-$("#btn1").click(function(){
-    fun();
-});
-$(window).resize(function(){
-    $("#myCanvas").attr("width",$("#myCanvas")[0].clientWidth)
-    console.log("hua ",$("#myCanvas")[0].clientWidth);
-    draw(m);
-});
