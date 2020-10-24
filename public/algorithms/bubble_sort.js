@@ -1,5 +1,6 @@
-import {draw,updateCanvasAttributes} from '../js/draw.js'
-const sleepNow =(delay) =>new Promise((resolve)=>setTimeout(resolve,delay));
+import {draw,updateCanvasAttributes} from '../js/draw.js';
+import {sleepNow,speed} from '../js/utilities.js';
+
 async function bubble_sort(arr_obj)
 {
     var arr=arr_obj.arr;
@@ -7,12 +8,12 @@ async function bubble_sort(arr_obj)
     for(var i=0;i<arr.length-1;i++)
     {
         draw({arr:arr,colors:colors});
-        await sleepNow(50);
+        await sleepNow(speed);
         for(var j=0;j<arr.length-1-i;j++)
         {
             colors[j]="green";colors[j+1]="green";
             draw({arr:arr,colors:colors});
-            await sleepNow(150);
+            await sleepNow(speed);
             if(arr[j]>arr[j+1])
             {
                 var temp=arr[j];
@@ -22,13 +23,13 @@ async function bubble_sort(arr_obj)
             }
             else
             {
-                colors[j]="black";
-                colors[j+1]="black";
+                colors[j]="#b3b3b3";
+                colors[j+1]="#b3b3b3";
             }
             draw({arr:arr,colors:colors});
-            await sleepNow(175);
-            colors[j]="black";
-            colors[j+1]="black";
+            await sleepNow(speed);
+            colors[j]="#b3b3b3";
+            colors[j+1]="#b3b3b3";
         }
         colors[arr.length-1-i]="blue";
     }

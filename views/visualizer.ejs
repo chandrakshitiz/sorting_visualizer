@@ -11,54 +11,81 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="./css/visualizer_css.css">
 
+    <script src="https://kit.fontawesome.com/5f8bb17289.js" crossorigin="anonymous"></script>
+
     <title>Visualizer</title>
   </head>
   <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light p-2" >
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-brand">Sorting Visualizer</div>
-
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Algorithm
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <span class="dropdown-item" >Bubble Sort</span>
-                <div class="dropdown-divider"></div>
-                <span class="dropdown-item" >Merge Sort</span>
-                <div class="dropdown-divider"></div>
-                <span class="dropdown-item" >Quick Sort</span>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+    <div class="navbar-light bg-white p-2" style="box-shadow: 0px 3px 6px #888888;" >
+      <center>
+         <div class="navbar-brand" style="font-weight:bold;font-size:1.6rem">Sorting Visualizer</div>
+      </center>
+   </div>
     
     <!-- Canvas -->
-    <div class="container container1 border border-info mt-2">
+    <div class="container container1 mt-4">
         <canvas id="myCanvas" class="canvas_decor"></canvas> 
-    </div>  
-
-    <button id="btn">click</button>
-    <button id="btn1">click1</button>
-
-    <input type="range" id="sl" min='10' max='200'>
-
+    </div>
+    <br>  
+    <div class="container">
+      <center>
+        <i class="fas fa-undo fa-2x align-baseline" title="Undo" style="padding:10px 12px;position: relative;bottom:16px;"></i>
+        <i class="far fa-play-circle fa-5x" ></i>
+        <i class="fas fa-fast-forward fa-2x" title="Fast forward" style="padding:10px 12px;position: relative;bottom:16px;"></i>
+      </center>
+    </div>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-lg-3">
+          <div class="btn-group" style="width:100%" role="group">
+            <button id="btnGroupDrop1" style="width:50%;margin:auto" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+              Algorithm
+            </button>
+            <div class="dropdown-menu" style="width:50%" aria-labelledby="btnGroupDrop1">
+              <span id="bubble_btn" class="dropdown-item" >Bubble Sort</span>
+                  <div class="dropdown-divider"></div>
+                  <span id="selection_btn" class="dropdown-item" >Selection Sort</span>
+                  <div class="dropdown-divider"></div>
+                  <span id="quick_btn" class="dropdown-item" >Quick Sort</span>
+                  <div class="dropdown-divider"></div>
+                  <span id="insertion_btn" class="dropdown-item" >Insertion Sort</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="btn-group"  style="width:100%" role="group">
+              <button id="btnGroupDrop1" style="width:50%;margin:auto" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+                Array Size
+              </button>
+              <div class="dropdown-menu" style="width:50%" aria-labelledby="btnGroupDrop1">
+                <input type="range"  style="width:100%" id="sl" min='10' max='200' value="25">
+              </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="btn-group"  style="width:100%" role="group">
+            <button id="btnGroupDrop1" style="width:50%;margin:auto" type="button" class="btn btn-dark active">
+              Random
+            </button>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="btn-group" style="width:100%" role="group">
+            <button id="btnGroupDrop1" style="width:50%;margin:auto" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+              Speed
+            </button>
+            <div class="dropdown-menu" style="width:50%" aria-labelledby="btnGroupDrop1">
+              <input type="range" style="width:100%" id="sl1" min='5' max='1000' value="100">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
