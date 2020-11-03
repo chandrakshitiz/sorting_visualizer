@@ -1,5 +1,5 @@
 import {draw,updateCanvasAttributes} from '../js/draw.js';
-import {sleepNow,speed} from '../js/utilities.js';
+import {sleepNow,speed,activate_btns} from '../js/utilities.js';
 async function insertion_sort(arr_obj)
 {
     var arr=arr_obj.arr;
@@ -18,14 +18,14 @@ async function insertion_sort(arr_obj)
             colors[j]="#fbfbfb";
             draw(arr_obj);
             await sleepNow(speed);
-            colors[j+1]="#b3b3b3";
+            colors[j+1]="#545B62";
             j--;
         }
         arr[j+1]=key;
         colors[j+1]="red";
         draw(arr_obj);
         await sleepNow(speed);
-        colors[j+1]="#b3b3b3";
+        colors[j+1]="#545B62";
         draw(arr_obj);
         await sleepNow(speed);
     }
@@ -37,5 +37,6 @@ async function insertion_sort(arr_obj)
     }
     draw(arr_obj);
     console.log(arr);
+    activate_btns();
 }
 export default insertion_sort;

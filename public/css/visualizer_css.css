@@ -1,12 +1,89 @@
 .canvas_decor
 {
-    color:#5ba59b;
+    color:#b41313;
     width:100%;
-    height:48vh;
-    border:2px solid #bdbdbd;
+    /* height:48vh; */
+    height:52vh;
+    border-top:1px solid rgb(160, 158, 158);
+    border-left:1px solid  rgb(160, 158, 158);
+    border-right:1px solid  rgb(160, 158, 158);
+    border-bottom:1px solid rgb(160, 158, 158);
     box-shadow:0px 5px 10px 5px #bdbdbd;
     background-color:#fbfbfb;
 }
+
+#play_btn
+{
+    color:#8E8E93;
+    background-color: transparent;
+    border:none;
+}
+#play_btn:focus
+{
+    outline:none;
+    border:none;
+}
+#regenerate_btn
+{
+    color:#8E8E93;
+    background-color: transparent;
+    border:none;
+}
+#regenerate_btn:focus
+{
+    outline:none;
+    border:none;
+}
+
+
+#fforward_btn
+{
+    color:#8E8E93;
+    background-color: transparent;
+    border:none;
+}
+#fforward_btn:focus
+{
+    outline:none;
+    border:none;
+}
+html 
+{
+    height: 100%;
+}
+body 
+{
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+#bubble_des,#selection_des,#quick_des,#insertion_des
+{
+    display:none;
+}
+.other_btn_active
+{
+    color:#20252b !important; 
+}
+
+.play_btn_active
+{
+    color:#df7196 !important;
+}
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width:100%;
+    left: 0;
+    padding: 5px;
+    border-top:1px solid rgb(177, 177, 177);
+    text-align: center;
+  }
+
+
 @media (min-width: 540px){
 .container1 {
     max-width:95vw !important;
@@ -14,10 +91,33 @@
 }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
 
     [class*="col-"] {
         margin-bottom: 15px;
     }
-  
+    .canvas_decor
+    {
+        height:48vh;
+    }
+  }
+@media (max-width: 240px) {
+  .btn
+  {
+      width:65% !important;
+  }
+  .logo
+  {
+      display:none !important;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+    .play_btn_active:hover
+    {
+        color:#e95184 !important;
+    }
+    .other_btn_active:hover
+    {
+        color:#df7196 !important;
+    }
   }

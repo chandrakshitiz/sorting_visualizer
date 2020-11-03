@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,15 +14,17 @@
     <link rel="stylesheet" type="text/css" href="./css/visualizer_css.css">
 
     <script src="https://kit.fontawesome.com/5f8bb17289.js" crossorigin="anonymous"></script>
-
-    <title>Visualizer</title>
+    <title>Sorting Visualizer</title>
   </head>
   <body>
 
     <!-- Navbar -->
     <div class="navbar-light bg-white p-2" style="box-shadow: 0px 3px 6px #888888;" >
       <center>
-         <div class="navbar-brand" style="font-weight:bold;font-size:1.6rem">Sorting Visualizer</div>
+        <i class="fas fa-sort-amount-down-alt fa-2x fa-rotate-270 logo" style="position:relative;top:10px"></i>
+         <div class="navbar-brand" style="margin:0px;font-weight:bold;font-size:1.6rem">
+          Sorting Visualizer
+        </div>
       </center>
    </div>
     
@@ -31,20 +35,20 @@
     <br>  
     <div class="container">
       <center>
-        <i class="fas fa-undo fa-2x align-baseline" title="Undo" style="padding:10px 12px;position: relative;bottom:16px;"></i>
-        <i class="far fa-play-circle fa-5x" ></i>
-        <i class="fas fa-fast-forward fa-2x" title="Fast forward" style="padding:10px 12px;position: relative;bottom:16px;"></i>
+        <button id="regenerate_btn" class="fas fa-undo fa-2x align-baseline" title="Rearrange Array" style="padding:10px 10px;position: relative;bottom:16px;" disabled="true"></button>
+        <button id="play_btn" class="fas fa-play-circle fa-5x" disabled="true"></button>
+        <button id="fforward_btn" class="fas fa-fast-forward fa-2x" title="Fast forward" style="padding:10px 10px;position: relative;bottom:16px;" disabled="true"></button>
       </center>
     </div>
     <br>
     <div class="container">
       <div class="row">
-        <div class="col-sm-6 col-lg-3">
+        <div class="col-sm-6 col-xl-3">
           <div class="btn-group" style="width:100%" role="group">
-            <button id="btnGroupDrop1" style="width:50%;margin:auto" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
-              Algorithm
+            <button id="algo_menu" style="width:55%;margin:auto" type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+              <b>Algorithm</b>
             </button>
-            <div class="dropdown-menu" style="width:50%" aria-labelledby="btnGroupDrop1">
+            <div class="dropdown-menu" style="width:55%" aria-labelledby="btnGroupDrop1">
               <span id="bubble_btn" class="dropdown-item" >Bubble Sort</span>
                   <div class="dropdown-divider"></div>
                   <span id="selection_btn" class="dropdown-item" >Selection Sort</span>
@@ -55,37 +59,121 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-lg-3">
+        <div class="col-sm-6 col-xl-3">
             <div class="btn-group"  style="width:100%" role="group">
-              <button id="btnGroupDrop1" style="width:50%;margin:auto" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
-                Array Size
+              <button id="array_size" style="width:55%;margin:auto" type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+                <b>Array Size</b>
               </button>
-              <div class="dropdown-menu" style="width:50%" aria-labelledby="btnGroupDrop1">
-                <input type="range"  style="width:100%" id="sl" min='10' max='200' value="25">
+              <div class="dropdown-menu" style="width:55%" aria-labelledby="btnGroupDrop1">
+                <input type="range"  style="width:100%" id="sl" min='10' max='250' value="25">
               </div>
             </div>
         </div>
-        <div class="col-sm-6 col-lg-3">
-          <div class="btn-group"  style="width:100%" role="group">
-            <button id="btnGroupDrop1" style="width:50%;margin:auto" type="button" class="btn btn-dark active">
-              Random
+        <div class="col-sm-6 col-xl-3">
+          <div class="btn-group" style="width:100%" role="group">
+            <button id="order_menu"  style="width:55%;margin:auto" type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+              <b>Arrangement</b>
             </button>
+            <div class="dropdown-menu" style="width:55%;" aria-labelledby="btnGroupDrop1">
+              <span id="random_btn" class="dropdown-item" >Random</span>
+              <div class="dropdown-divider"></div>
+              <span id="ascend_btn" class="dropdown-item" >Ascending</span>
+              <div class="dropdown-divider"></div>
+              <span id="descend_btn" class="dropdown-item" >Descending</span>
+            </div>
           </div>
         </div>
-        <div class="col-sm-6 col-lg-3">
+        <div class="col-sm-6 col-xl-3">
           <div class="btn-group" style="width:100%" role="group">
-            <button id="btnGroupDrop1" style="width:50%;margin:auto" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
-              Speed
+            <button id="speed" style="width:55%;margin:auto" type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false" >
+              <b>Speed</b>
             </button>
-            <div class="dropdown-menu" style="width:50%" aria-labelledby="btnGroupDrop1">
+            <div class="dropdown-menu" style="width:55%" aria-labelledby="btnGroupDrop1">
               <input type="range" style="width:100%" id="sl1" min='5' max='1000' value="100">
             </div>
           </div>
         </div>
       </div>
     </div>
-   
-     
+
+   <!--Bubble Sort description-->
+    <div id="bubble_des" class="container mt-5">
+      <hr>
+      <h1 class="mt-4">Bubble Sort</h1>
+      <div class="row mt-4" >
+        <div class="col-lg-8" style="border-right: 1px solid black;">
+          Bubble sort is a comparison-based algorithm in which each pair of adjacent elements is compared and the elements are swapped if they are not in order. That is, while sorting in ascending order if the current element is bigger than the adjacent right element, then, they are swapped.
+        </div>
+        <div class="col-lg-4">
+          <h4 class="mb-3">Performace :</h4>
+          <h6>Worst-case time complexity : <strong>O( n<sup>2</sup> )</strong></h6>
+          <h6>Average time complexity : <strong>O( n<sup>2</sup> )</strong></h6>
+          <h6>Best-case time complexity : <strong>O( n )</strong></h6>
+          <h6>(Auxillary) Space complexity : <strong>O( 1 )</strong></h6>
+        </div>
+      </div>
+    </div>
+
+    <!--Selection Sort description-->
+    <div id="selection_des" class="container mt-5">
+      <hr>
+      <h1 class="mt-4">Selection Sort</h1>
+      <div class="row mt-4" >
+        <div class="col-lg-8" style="border-right: 1px solid black;">
+          Selection sort is an in-place comparison-based algorithm in which an element is selected and compared with other elements so as to find and place the correct element at its( the selected element's) position. 
+        </div>
+        <div class="col-lg-4">
+          <h4 class="mb-3">Performace :</h4>
+          <h6>Worst-case time complexity : <strong>O( n<sup>2</sup> )</strong></h6>
+          <h6>Average time complexity : <strong>O( n<sup>2</sup> )</strong></h6>
+          <h6>Best-case time complexity : <strong>O( n<sup>2</sup> )</strong></h6>
+          <h6>(Auxillary) Space complexity : <strong>O( 1 )</strong></h6>
+        </div>
+      </div>
+    </div>
+
+    <!--Quick Sort description-->
+    <div id="quick_des" class="container mt-5">
+      <hr>
+      <h1 class="mt-4">Quick Sort</h1>
+      <div class="row mt-4" >
+        <div class="col-lg-8" style="border-right: 1px solid black;">
+          Quick sort is an efficient sorting algorithm and is based on partitioning of array of data into smaller arrays. A large array is partitioned into two arrays one of which holds values smaller than the specified value, say pivot, based on which the partition is made and another array holds values greater than the pivot value. It partitions an array and then calls itself recursively twice to sort the two resulting subarrays. 
+        </div>
+        <div class="col-lg-4">
+          <h4 class="mb-3">Performace :</h4>
+          <h6>Worst-case time complexity : <strong>O( n<sup>2</sup> )</strong></h6>
+          <h6>Average time complexity : <strong>O( nlogn )</strong></h6>
+          <h6>Best-case time complexity : <strong>O( nlogn )</strong></h6>
+          <h6>(Auxillary) Space complexity : <strong>O( 1 )</strong></h6>
+        </div>
+      </div>
+    </div>
+
+    <!--Insertion Sort description-->
+    <div id="insertion_des" class="container mt-5">
+      <hr>
+      <h1 class="mt-4">Insertion Sort</h1>
+      <div class="row mt-4" >
+        <div class="col-lg-8" style="border-right: 1px solid black;">
+          Insertion sort is an in-place comparison-based sorting algorithm that places an element (starting from the left side of the array towards the right end) at its suitable place among the elements before it( i.e. on left side) in the array, in each iteration.
+        </div>
+        <div class="col-lg-4">
+          <h4 class="mb-3">Performace :</h4>
+          <h6>Worst-case time complexity : <strong>O( n<sup>2</sup> )</strong></h6>
+          <h6>Average time complexity : <strong>O( n<sup>2</sup> )</strong></h6>
+          <h6>Best-case time complexity : <strong>O( n )</strong></h6>
+          <h6>(Auxillary) Space complexity : <strong>O( 1 )</strong></h6>
+        </div>
+      </div>
+    </div>
+    <footer>
+    <!-- <div class="text-center mt-5" style="border-top:1px solid rgb(177, 177, 177)">Designed and built by Kshitiz Chandra -->
+      Designed and built by <strong>Kshitiz Chandra</strong>
+      <br>
+      <a href="https://www.github.com/chandrakshitiz" style="color:black" class="fab fa-github fa-2x"></a>
+    <!-- </div> -->
+    </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

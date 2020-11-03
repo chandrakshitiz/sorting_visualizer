@@ -1,5 +1,5 @@
 import {draw,updateCanvasAttributes} from '../js/draw.js';
-import {sleepNow,speed} from '../js/utilities.js';
+import {sleepNow,speed,activate_btns} from '../js/utilities.js';
 
 function swap(arr,i,j)
 {
@@ -22,7 +22,7 @@ async function partition(arr_obj,l,u)
             colors[i]="orange";
             draw(arr_obj);
             await sleepNow(speed);
-            colors[i]="#b3b3b3";
+            colors[i]="#545B62";
             i++;
         }
         if(i<=u)
@@ -34,7 +34,7 @@ async function partition(arr_obj,l,u)
             draw(arr_obj);
             await sleepNow(speed);
             
-            colors[j]="#b3b3b3";
+            colors[j]="#545B62";
             j--;
         }
         if(j>=l)
@@ -50,9 +50,9 @@ async function partition(arr_obj,l,u)
         draw(arr_obj);
         await sleepNow(speed);
         if(i<=u)
-            colors[i]="#b3b3b3";
+            colors[i]="#545B62";
         if(j>=l)
-            colors[j]="#b3b3b3";
+            colors[j]="#545B62";
         draw(arr_obj);
         await sleepNow(speed);
     }
@@ -60,8 +60,8 @@ async function partition(arr_obj,l,u)
     draw(arr_obj);
     await sleepNow(speed);
     swap(arr,pivot,j);
-    colors[pivot]="#b3b3b3";
-    colors[j]="#107594";
+    colors[pivot]="#545B62";
+    colors[j]="#7c10bb";
     draw(arr_obj);
     await sleepNow(speed);
     return j;
@@ -87,5 +87,6 @@ async function quick_sort(arr_obj,l,u)
     await quick_sort_on(arr_obj,l,u);
     console.log(arr_obj.arr);
     draw(arr_obj);
+    activate_btns();
 }
 export default quick_sort;

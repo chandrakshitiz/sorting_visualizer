@@ -26,7 +26,7 @@ function draw(arr_obj)
     var ctx=c.getContext("2d");
     var twd=c.clientWidth;
     ctx.clearRect(0,0,twd,c.clientHeight);
-    var sp=4;
+    var sp=3;
     var iwd=(twd-(arr.length+1)*sp)/arr.length;
     console.log(twd,iwd);
     arr=normalizeHeight(arr,c.clientHeight-10);
@@ -38,10 +38,14 @@ function draw(arr_obj)
         x=(i+1)*sp+i*iwd;
         //ctx.beginPath();
         ctx.fillStyle=colors[i];
-        //ctx.lineWidth=1;
-        ctx.fillRect(x,invy-arr[i],iwd,arr[i]-2);
+        // //ctx.lineWidth=1;
+        ctx.fillRect(x,invy-arr[i],iwd,arr[i]-1);
         // ctx.fill();
         // ctx.strokeStyle="#47424b";//"#a8a8a8";
+        // ctx.stroke();
+        // ctx.beginPath();
+        // ctx.moveTo(x, invy-arr[i]);
+        // ctx.lineTo(x,invy+arr[i]-1);
         // ctx.stroke();
     }
 }

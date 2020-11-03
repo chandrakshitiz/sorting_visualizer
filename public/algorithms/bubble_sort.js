@@ -1,5 +1,5 @@
 import {draw,updateCanvasAttributes} from '../js/draw.js';
-import {sleepNow,speed} from '../js/utilities.js';
+import {sleepNow,speed,activate_btns} from '../js/utilities.js';
 
 async function bubble_sort(arr_obj)
 {
@@ -23,17 +23,18 @@ async function bubble_sort(arr_obj)
             }
             else
             {
-                colors[j]="#b3b3b3";
-                colors[j+1]="#b3b3b3";
+                colors[j]="#545B62";
+                colors[j+1]="#545B62";
             }
             draw({arr:arr,colors:colors});
             await sleepNow(speed);
-            colors[j]="#b3b3b3";
-            colors[j+1]="#b3b3b3";
+            colors[j]="#545B62";
+            colors[j+1]="#545B62";
         }
         colors[arr.length-1-i]="blue";
     }
     colors[0]="blue";
     draw(arr_obj);
+    activate_btns();
 }
 export default bubble_sort;

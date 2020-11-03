@@ -1,5 +1,5 @@
 import {draw,updateCanvasAttributes} from '../js/draw.js';
-import {sleepNow,speed} from '../js/utilities.js';
+import {sleepNow,speed,activate_btns} from '../js/utilities.js';
 
 async function selection_sort(arr_obj)
 {
@@ -19,13 +19,13 @@ async function selection_sort(arr_obj)
             await sleepNow(speed);
             if(arr[j]<arr[min_idx])
             {
-                colors[min_idx]="#b3b3b3";
+                colors[min_idx]="#545B62";
                 min_idx=j;
                 colors[min_idx]="#df1372";
             }
             else
             {
-                colors[j]="#b3b3b3";
+                colors[j]="#545B62";
             }
             draw({arr:arr,colors:colors});
             await sleepNow(speed);
@@ -33,12 +33,13 @@ async function selection_sort(arr_obj)
         var temp=arr[i];
         arr[i]=arr[min_idx];
         arr[min_idx]=temp;
-        colors[min_idx]="#b3b3b3";
+        colors[min_idx]="#545B62";
         colors[i]="#7c10bb";
         draw({arr:arr,colors:colors});
         await sleepNow(speed);
     }
     colors[arr.length-1]="#7c10bb";
     draw({arr:arr,colors:colors});
+    activate_btns();
 }
 export default selection_sort;
