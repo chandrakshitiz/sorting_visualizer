@@ -3,7 +3,9 @@ import bubble_sort from '../algorithms/bubble_sort.js';
 import selection_sort from '../algorithms/selection_sort.js';
 import quick_sort from '../algorithms/quick_sort.js';
 import insertion_sort from '../algorithms/insertion_sort.js';
+import merge_sort from '../algorithms/merge_sort.js';
 import {hide_all_des,activate_btns,play_btn_clkd,reset_colors_arr,incr,decr} from './utilities.js'
+
 function rndInt(min,max)
 {
     return Math.floor(Math.random()*(max-min+1))+min;
@@ -13,18 +15,22 @@ function arrayGenerator(min,max,size)
 {
     var arr=[];
     var colors=[];
+    var mx=0;
     for(var i=0;i<size;i++)
     {
         arr.push(rndInt(min,max));
-        colors.push("#545B62");//#b41313//#FFFFFFDE");#6C757D#545B62
+        if(arr[i]>mx)
+            mx=arr[i];
+        colors.push("#138eb4");//#b41313//#FFFFFFDE");#6C757D#545B62
     }
     console.log(arr);
-    return {arr:arr,colors:colors};
+    // updateCanvasAttributes(scale);
+    return {arr:arr,colors:colors,ht:mx+50,sf:1};
 }
 
 function regenerate_array()
 {
-    var arr_obj=arrayGenerator(50,2000,parseInt($("#sl").val()));
+    var arr_obj=arrayGenerator(50,1500,parseInt($("#sl").val()));
     console.log("vl=",$("#sl").val());
     if($("#order_menu").text()=="Ascending")
     {
@@ -46,6 +52,11 @@ $(document).ready(function(){
     })
     $("#btn").click(function(){
         quick_sort(arr_obj,0,arr_obj.arr.length-1);
+    })
+    $("#can_btn").click(function(){
+        $(this).toggleClass("fa-toggle-on fa-toggle-off");
+        $("#myCanvas").toggleClass("canvas_light");
+        
     })
     $("#selection_btn").click(function(){
         $("#algo_menu").html("<b>Selection Sort</b>");
@@ -71,6 +82,12 @@ $(document).ready(function(){
         activate_btns();
         $("#insertion_des").show();
     });
+    $("#merge_btn").click(function(){
+        $("#algo_menu").html("<b>Merge Sort</b>");
+        hide_all_des();
+        activate_btns();
+        $("#merge_des").show();
+    });
     $("#play_btn").click(function(){
         console.log($("#algo_menu").text());
         const algo=$("#algo_menu").text();
@@ -94,6 +111,11 @@ $(document).ready(function(){
         {
             play_btn_clkd();
             bubble_sort(arr_obj);
+        }
+        else
+        {
+            play_btn_clkd();
+            merge_sort(arr_obj);
         }
     })
     $("#regenerate_btn").click(function(){
@@ -119,7 +141,7 @@ $(document).ready(function(){
         console.log(order);
     })
     $(window).resize(function(){
-        updateCanvasAttributes();
+        updateCanvasAttributes(arr_obj);
         draw(arr_obj);
     })
 })

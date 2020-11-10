@@ -5,7 +5,7 @@ async function selection_sort(arr_obj)
 {
     var arr=arr_obj.arr;
     var colors=arr_obj.colors;
-    draw({arr:arr,colors:colors});
+    draw(arr_obj);
     await sleepNow(speed);
     for(var i=0;i<arr.length-1;i++)
     {
@@ -14,32 +14,32 @@ async function selection_sort(arr_obj)
         for(var j=i+1;j<arr.length;j++)
         {
             
-            colors[j]="yellow";
-            draw({arr:arr,colors:colors});
+            colors[j]="#fffb00";
+            draw(arr_obj);
             await sleepNow(speed);
             if(arr[j]<arr[min_idx])
             {
-                colors[min_idx]="#545B62";
+                colors[min_idx]="#138eb4";
                 min_idx=j;
                 colors[min_idx]="#df1372";
             }
             else
             {
-                colors[j]="#545B62";
+                colors[j]="#138eb4";
             }
-            draw({arr:arr,colors:colors});
+            draw(arr_obj);
             await sleepNow(speed);
         }
         var temp=arr[i];
         arr[i]=arr[min_idx];
         arr[min_idx]=temp;
-        colors[min_idx]="#545B62";
+        colors[min_idx]="#138eb4";
         colors[i]="#7c10bb";
-        draw({arr:arr,colors:colors});
+        draw(arr_obj)
         await sleepNow(speed);
     }
     colors[arr.length-1]="#7c10bb";
-    draw({arr:arr,colors:colors});
+    draw(arr_obj)
     activate_btns();
 }
 export default selection_sort;

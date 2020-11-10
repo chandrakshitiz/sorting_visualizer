@@ -7,12 +7,12 @@ async function bubble_sort(arr_obj)
     var colors=arr_obj.colors;
     for(var i=0;i<arr.length-1;i++)
     {
-        draw({arr:arr,colors:colors});
+        draw(arr_obj);
         await sleepNow(speed);
         for(var j=0;j<arr.length-1-i;j++)
         {
-            colors[j]="green";colors[j+1]="green";
-            draw({arr:arr,colors:colors});
+            colors[j]="#fffb00";colors[j+1]="#fffb00";
+            draw(arr_obj);
             await sleepNow(speed);
             if(arr[j]>arr[j+1])
             {
@@ -23,13 +23,13 @@ async function bubble_sort(arr_obj)
             }
             else
             {
-                colors[j]="#545B62";
-                colors[j+1]="#545B62";
+                colors[j]="#138eb4";
+                colors[j+1]="#138eb4";
             }
-            draw({arr:arr,colors:colors});
+            draw(arr_obj);
             await sleepNow(speed);
-            colors[j]="#545B62";
-            colors[j+1]="#545B62";
+            colors[j]="#138eb4";
+            colors[j+1]="#138eb4";
         }
         colors[arr.length-1-i]="blue";
     }

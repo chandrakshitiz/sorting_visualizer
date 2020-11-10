@@ -22,7 +22,7 @@ async function partition(arr_obj,l,u)
             colors[i]="orange";
             draw(arr_obj);
             await sleepNow(speed);
-            colors[i]="#545B62";
+            colors[i]="#138eb4";
             i++;
         }
         if(i<=u)
@@ -34,7 +34,7 @@ async function partition(arr_obj,l,u)
             draw(arr_obj);
             await sleepNow(speed);
             
-            colors[j]="#545B62";
+            colors[j]="#138eb4";
             j--;
         }
         if(j>=l)
@@ -44,15 +44,15 @@ async function partition(arr_obj,l,u)
         if(i<j)
         {
             swap(arr,i,j);
-            colors[i]="pink";
-            colors[j]="pink";
+            colors[i]="#545B62";
+            colors[j]="#545B62";
         }
         draw(arr_obj);
         await sleepNow(speed);
         if(i<=u)
-            colors[i]="#545B62";
+            colors[i]="#138eb4";
         if(j>=l)
-            colors[j]="#545B62";
+            colors[j]="#138eb4";
         draw(arr_obj);
         await sleepNow(speed);
     }
@@ -60,7 +60,7 @@ async function partition(arr_obj,l,u)
     draw(arr_obj);
     await sleepNow(speed);
     swap(arr,pivot,j);
-    colors[pivot]="#545B62";
+    colors[pivot]="#138eb4";
     colors[j]="#7c10bb";
     draw(arr_obj);
     await sleepNow(speed);

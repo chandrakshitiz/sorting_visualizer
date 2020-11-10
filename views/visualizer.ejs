@@ -29,8 +29,9 @@
    </div>
     
     <!-- Canvas -->
-    <div class="container container1 mt-4">
+    <div class="container container1 mt-4" style="position: relative;font-size: 1.1rem;">
         <canvas id="myCanvas" class="canvas_decor"></canvas> 
+        <i id="can_btn" class="fas fa-toggle-on fa-1x" style="position: absolute;left:15px;bottom:-10px;color:black;"></i>
     </div>
     <br>  
     <div class="container">
@@ -56,6 +57,8 @@
                   <span id="quick_btn" class="dropdown-item" >Quick Sort</span>
                   <div class="dropdown-divider"></div>
                   <span id="insertion_btn" class="dropdown-item" >Insertion Sort</span>
+                  <div class="dropdown-divider"></div>
+                  <span id="merge_btn" class="dropdown-item" >Merge Sort</span>
             </div>
           </div>
         </div>
@@ -167,13 +170,32 @@
         </div>
       </div>
     </div>
+
+    <div id="merge_des" class="container mt-5">
+      <hr>
+      <h1 class="mt-4">Merge Sort</h1>
+      <div class="row mt-4" >
+        <div class="col-lg-8" style="border-right: 1px solid black;">
+          Merge sort is a sorting technique based on divide and conquer technique. Merge sort first divides the array into equal halves and then combines them in a sorted manner.
+        </div>
+        <div class="col-lg-4">
+          <h4 class="mb-3">Performace :</h4>
+          <h6>Worst-case time complexity : <strong>O( nlogn )</strong></h6>
+          <h6>Average time complexity : <strong>O( nlogn )</strong></h6>
+          <h6>Best-case time complexity : <strong>O( nlogn )</strong></h6>
+          <h6>(Auxillary) Space complexity : <strong>O( n )</strong></h6>
+        </div>
+      </div>
+    </div>
     <footer>
     <!-- <div class="text-center mt-5" style="border-top:1px solid rgb(177, 177, 177)">Designed and built by Kshitiz Chandra -->
       Designed and built by <strong>Kshitiz Chandra</strong>
       <br>
-      <a href="https://www.github.com/chandrakshitiz" style="color:black" class="fab fa-github fa-2x"></a>
+      <a id="anchor_icon" href="https://linkedin.com/in/chandrakshitiz" target="_blank" class="fab fa-linkedin fa-2x"></a>
+      <a id="anchor_icon" href="https://www.github.com/chandrakshitiz" target="_blank" class="fab fa-github fa-2x"></a>
     <!-- </div> -->
     </footer>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

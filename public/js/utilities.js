@@ -32,7 +32,7 @@ $("#fforward_btn").click(function(){
 function reset_colors_arr(arr_obj)
 {
     for(var i=0;i<arr_obj.colors.length;i++)
-        arr_obj.colors[i]="#545B62";
+        arr_obj.colors[i]="#138eb4";
 }
 function hide_all_des()
 {
