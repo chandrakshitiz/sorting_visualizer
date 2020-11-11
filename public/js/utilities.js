@@ -40,6 +40,7 @@ function hide_all_des()
     $("#selection_des").hide();
     $("#quick_des").hide();
     $("#insertion_des").hide();
+    $("#merge_des").hide();
 }
 function enable_dropdowns()
 {
