@@ -1,3 +1,40 @@
+function rndInt(min,max)
+{
+    return Math.floor(Math.random()*(max-min+1))+min;
+}
+
+function arrayGenerator(min,max,size)
+{
+    var arr=[];
+    var colors=[];
+    var mx=0;
+    for(var i=0;i<size;i++)
+    {
+        arr.push(rndInt(min,max));
+        if(arr[i]>mx)
+            mx=arr[i];
+        colors.push("#138eb4");//#b41313//#FFFFFFDE");#6C757D#545B62
+    }
+    
+    // updateCanvasAttributes(scale);
+    return {arr:arr,colors:colors,ht:mx+50,sf:1};
+}
+
+function regenerate_array()
+{
+    var arr_obj=arrayGenerator(50,1500,parseInt($("#sl").val()));
+    
+    if($("#order_menu").text()=="Ascending")
+    {
+        arr_obj.arr.sort(incr);
+    }
+    else if($("#order_menu").text()=="Descending")
+    {
+       arr_obj.arr.sort(decr);   
+    }
+    return arr_obj;
+}
+
 const sleepNow =(delay) =>new Promise((resolve)=>setTimeout(resolve,delay));
 var speed=parseInt($("#sl1").val());
 $("#sl1").change(function(){
@@ -90,4 +127,4 @@ function decr(a,b)
 {
     return b-a;
 }
-export {sleepNow,speed,hide_all_des,activate_btns,play_btn_clkd,reset_colors_arr,incr,decr};
+export {arrayGenerator,regenerate_array,sleepNow,speed,hide_all_des,activate_btns,play_btn_clkd,reset_colors_arr,incr,decr};

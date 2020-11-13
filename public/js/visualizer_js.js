@@ -4,51 +4,14 @@ import selection_sort from '../algorithms/selection_sort.js';
 import quick_sort from '../algorithms/quick_sort.js';
 import insertion_sort from '../algorithms/insertion_sort.js';
 import merge_sort from '../algorithms/merge_sort.js';
-import {hide_all_des,activate_btns,play_btn_clkd,reset_colors_arr,incr,decr} from './utilities.js'
-
-function rndInt(min,max)
-{
-    return Math.floor(Math.random()*(max-min+1))+min;
-}
-
-function arrayGenerator(min,max,size)
-{
-    var arr=[];
-    var colors=[];
-    var mx=0;
-    for(var i=0;i<size;i++)
-    {
-        arr.push(rndInt(min,max));
-        if(arr[i]>mx)
-            mx=arr[i];
-        colors.push("#138eb4");//#b41313//#FFFFFFDE");#6C757D#545B62
-    }
-    
-    // updateCanvasAttributes(scale);
-    return {arr:arr,colors:colors,ht:mx+50,sf:1};
-}
-
-function regenerate_array()
-{
-    var arr_obj=arrayGenerator(50,1500,parseInt($("#sl").val()));
-    
-    if($("#order_menu").text()=="Ascending")
-    {
-        arr_obj.arr.sort(incr);
-    }
-    else if($("#order_menu").text()=="Descending")
-    {
-       arr_obj.arr.sort(decr);   
-    }
-    draw(arr_obj);
-    return arr_obj;
-}
+import {arrayGenerator,regenerate_array,hide_all_des,activate_btns,play_btn_clkd,reset_colors_arr,incr,decr} from './utilities.js'
 
 $(document).ready(function(){
     var arr_obj=arrayGenerator(100,2000,25);
     draw(arr_obj);
     $("#sl").change(function(){
         arr_obj=regenerate_array();
+        draw(arr_obj);
     })
     $("#btn").click(function(){
         quick_sort(arr_obj,0,arr_obj.arr.length-1);
@@ -120,6 +83,7 @@ $(document).ready(function(){
     })
     $("#regenerate_btn").click(function(){
         arr_obj=regenerate_array();
+        draw(arr_obj);
     })
     $("#random_btn").click(function(){
         $("#order_menu").html("<b>Random</b>");

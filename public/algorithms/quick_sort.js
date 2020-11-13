@@ -73,9 +73,7 @@ async function quick_sort_on(arr_obj,l,u)
     {
         
         var j;
-        await partition(arr_obj,l,u).then((value)=>{j=value;
-        
-        
+        await partition(arr_obj,l,u).then((value)=>{j=value;});
         await quick_sort_on(arr_obj,l,j-1);
         await quick_sort_on(arr_obj,j+1,u);
     }
