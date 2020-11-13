@@ -7,7 +7,7 @@ $("#can_btn").click(function(){
     else
     {
         col='black';
-        console.log(col);
+        
     }
 });
 async function insertion_sort(arr_obj)
@@ -47,7 +47,7 @@ async function insertion_sort(arr_obj)
         await sleepNow(20);
     }
     draw(arr_obj);
-    console.log(arr);
+    
     activate_btns();
 }
 export default insertion_sort;

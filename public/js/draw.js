@@ -7,11 +7,11 @@ function updateCanvasAttributes(arr_obj)
     var sf=newht/prevht;
     arr_obj.ht=newht;
     arr_obj.sf=sf;
-    console.log(sf);
+    
     arr_obj.arr=normalizeHeight(arr_obj.arr,sf)
      //normalizeHeight(arr_obj.arr,$("#myCanvas")[0].clientHeight-10)
-    //console.log("WD= ",$("#myCanvas")[0].clientWidth);
-    //console.log("HT= ",$("#myCanvas")[0].clientHeight);
+    //
+    //
 }
 function normalizeHeight(arr,sf)
 {
@@ -19,7 +19,7 @@ function normalizeHeight(arr,sf)
     {
         arr[i]=arr[i]*sf;
     }
-    console.log(arr);
+    
     return arr;
 }
 function draw(arr_obj,scale)
@@ -36,7 +36,7 @@ function draw(arr_obj,scale)
     var sp=3;
     var ext=5;
     var iwd=(twd-(arr.length+1)*sp)/arr.length;
-    // console.log(twd,iwd);
+    // 
     var invy=c.clientHeight;
     
     for(var i=0;i<arr.length;i++)

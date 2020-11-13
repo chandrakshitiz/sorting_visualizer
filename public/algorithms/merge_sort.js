@@ -27,11 +27,11 @@ async function merge(arr_obj,l,m,u)
     {
         arr2.push(arr[it]);
     }
-    console.log("arr1- ",arr1.length);
-    console.log("arr2 - ",arr2.length);
-    console.log(l,m,u);
-    console.log("arr1- ",arr1);
-    console.log("arr-2",arr2);
+    
+    
+    
+    
+    
     var i=0,j=0,k=l;
     while(i<size1 && j<size2)
     {
@@ -41,10 +41,10 @@ async function merge(arr_obj,l,m,u)
             colors[k]="#7d0888";
             i++;
             k++;
-            console.log("a- ",arr);
+            
             draw(arr_obj);
             await sleepNow(speed);
-            console.log("a- ",arr);
+            
         }
         else
         {
@@ -52,10 +52,10 @@ async function merge(arr_obj,l,m,u)
             colors[k]="#7d0888";
             j++;
             k++;
-            console.log("b- ",arr);
+            
             draw(arr_obj);
             await sleepNow(speed);
-            console.log("b- ",arr);
+            
         }
     }
     while(i<size1)
@@ -76,7 +76,7 @@ async function merge(arr_obj,l,m,u)
         draw(arr_obj);
         await sleepNow(speed);
     }
-    console.log(arr);
+    
     draw(arr_obj);
     await sleepNow(speed);
 }
@@ -86,7 +86,7 @@ async function merge_sort_on(arr_obj,l,u)
     {
         var m=(l+u)/2;
         m=parseInt(m);
-        console.log(l,m,u);
+        
         await merge_sort_on(arr_obj,l,m);
         await merge_sort_on(arr_obj,m+1,u);
         await merge(arr_obj,l,m,u);
@@ -100,12 +100,12 @@ async function merge_sort(arr_obj)
 {
     var arr=arr_obj.arr;
     var u=arr.length-1;
-    console.log(arr);
-    console.log("aya");
+    
+    
     await merge_sort_on(arr_obj,0,u);
     draw(arr_obj);
     await sleepNow(speed);
-    console.log(arr);
+    
     activate_btns();
 }
 

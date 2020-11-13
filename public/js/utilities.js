@@ -2,7 +2,7 @@ const sleepNow =(delay) =>new Promise((resolve)=>setTimeout(resolve,delay));
 var speed=parseInt($("#sl1").val());
 $("#sl1").change(function(){
     speed=parseInt($("#sl1").val());
-    console.log("vl=",$("#sl1").val());
+    
     if(speed==0)
     {
         $("#fforward_btn").removeClass("other_btn_active");
@@ -10,7 +10,7 @@ $("#sl1").change(function(){
     }
     else
     {
-        console.log($("#fforward_btn").is(":disabled"));
+        
         if($("#fforward_btn").is(":disabled")==false)
             $("#fforward_btn").addClass("other_btn_active");
     }
@@ -18,7 +18,7 @@ $("#sl1").change(function(){
 $("#fforward_btn").click(function(){
     if(speed!=0)
     {
-        console.log("hmm speed");
+        
         speed=0;
         $(this).removeClass("other_btn_active");
         $(this).css("color", "#e95184");
@@ -78,7 +78,7 @@ function play_btn_clkd()
     $("#regenerate_btn").removeClass("other_btn_active");
     $("#regenerate_btn").css("color","#838383");
     
-    console.log("hua");
+    
     disable_dropdowns();
 
 }

@@ -23,7 +23,7 @@ function arrayGenerator(min,max,size)
             mx=arr[i];
         colors.push("#138eb4");//#b41313//#FFFFFFDE");#6C757D#545B62
     }
-    console.log(arr);
+    
     // updateCanvasAttributes(scale);
     return {arr:arr,colors:colors,ht:mx+50,sf:1};
 }
@@ -31,7 +31,7 @@ function arrayGenerator(min,max,size)
 function regenerate_array()
 {
     var arr_obj=arrayGenerator(50,1500,parseInt($("#sl").val()));
-    console.log("vl=",$("#sl").val());
+    
     if($("#order_menu").text()=="Ascending")
     {
         arr_obj.arr.sort(incr);
@@ -89,7 +89,7 @@ $(document).ready(function(){
         $("#merge_des").show();
     });
     $("#play_btn").click(function(){
-        console.log($("#algo_menu").text());
+        
         const algo=$("#algo_menu").text();
         reset_colors_arr(arr_obj);
         if(algo=="Selection Sort")
@@ -138,7 +138,7 @@ $(document).ready(function(){
     })
     $("#order_menu").click(function(){
         const order=$(this).text();
-        console.log(order);
+        
     })
     $(window).resize(function(){
         updateCanvasAttributes(arr_obj);

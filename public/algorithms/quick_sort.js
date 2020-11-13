@@ -16,7 +16,7 @@ async function partition(arr_obj,l,u)
     var i=l+1,j=u;
     while(i<=j)
     {
-        console.log(i,j);
+        
         while(i<=u&&arr[i]<=arr[pivot])
         {
             colors[i]="orange";
@@ -71,11 +71,11 @@ async function quick_sort_on(arr_obj,l,u)
 {
     if(l<=u)
     {
-        console.log(l,u);
+        
         var j;
-        await partition(arr_obj,l,u).then((value)=>{j=value;console.log("j=",j,"v=",value);});
-        console.log("j= ",j);
-        console.log("l= ",l,"u= ",u);
+        await partition(arr_obj,l,u).then((value)=>{j=value;
+        
+        
         await quick_sort_on(arr_obj,l,j-1);
         await quick_sort_on(arr_obj,j+1,u);
     }
@@ -83,9 +83,9 @@ async function quick_sort_on(arr_obj,l,u)
 
 async function quick_sort(arr_obj,l,u)
 {
-    console.log(arr_obj.arr);
+    
     await quick_sort_on(arr_obj,l,u);
-    console.log(arr_obj.arr);
+    
     draw(arr_obj);
     activate_btns();
 }
