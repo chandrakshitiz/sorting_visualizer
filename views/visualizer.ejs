@@ -19,37 +19,43 @@
   <body>
 
     <!-- Navbar -->
-    <div class="navbar-light bg-white p-2" style="box-shadow: 0px 3px 6px #888888;" >
+    <div class="navbar-light bg-white p-2 navbar_shadow">
       <center>
-        <i class="fas fa-sort-amount-down-alt fa-2x fa-rotate-270 logo" style="position:relative;top:10px"></i>
-         <div class="navbar-brand" style="margin:0px;font-weight:bold;font-size:1.6rem">
+        <i class="fas fa-sort-amount-down-alt fa-2x fa-rotate-270 logo"></i>
+         <div class="navbar-brand">
           Sorting Visualizer
         </div>
       </center>
    </div>
     
     <!-- Canvas -->
-    <div class="container container1 mt-4" style="position: relative;font-size: 1.1rem;">
+    <div class="container canvas_container mt-4">
         <canvas id="myCanvas" class="canvas_decor"></canvas> 
-        <i id="can_btn" class="fas fa-toggle-on fa-1x" style="position: absolute;left:15px;bottom:-10px;color:black;"></i>
+        <i id="can_btn" class="fas fa-toggle-on fa-1x"></i>
     </div>
+
     <br>  
+
+    <!-- Control Buttons -->
     <div class="container">
       <center>
-        <button id="regenerate_btn" class="fas fa-undo fa-2x align-baseline" title="Rearrange Array" style="padding:10px 10px;position: relative;bottom:16px;" disabled="true"></button>
+        <button id="regenerate_btn" class="fas fa-undo fa-2x align-baseline" title="Rearrange Array" disabled="true"></button>
         <button id="play_btn" class="fas fa-play-circle fa-5x" disabled="true"></button>
-        <button id="fforward_btn" class="fas fa-fast-forward fa-2x" title="Fast forward" style="padding:10px 10px;position: relative;bottom:16px;" disabled="true"></button>
+        <button id="fforward_btn" class="fas fa-fast-forward fa-2x" title="Fast forward" disabled="true"></button>
       </center>
     </div>
+
     <br>
+
+    <!-- All Dropdowns -->
     <div class="container">
       <div class="row">
         <div class="col-sm-6 col-xl-3">
-          <div class="btn-group" style="width:100%" role="group">
-            <button id="algo_menu" style="width:55%;margin:auto" type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+          <div class="btn-group btn_div" role="group">
+            <button id="algo_menu" type="button" class="btn btn-outline-dark dropdown-toggle btn_menu" data-toggle="dropdown">
               <b>Algorithm</b>
             </button>
-            <div class="dropdown-menu" style="width:55%" aria-labelledby="btnGroupDrop1">
+            <div class="dropdown-menu drop_menu">
               <span id="bubble_btn" class="dropdown-item" >Bubble Sort</span>
                   <div class="dropdown-divider"></div>
                   <span id="selection_btn" class="dropdown-item" >Selection Sort</span>
@@ -63,21 +69,21 @@
           </div>
         </div>
         <div class="col-sm-6 col-xl-3">
-            <div class="btn-group"  style="width:100%" role="group">
-              <button id="array_size" style="width:55%;margin:auto" type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+            <div class="btn-group btn_div" role="group">
+              <button id="array_size" type="button" class="btn btn-outline-dark dropdown-toggle btn_menu" data-toggle="dropdown">
                 <b>Array Size</b>
               </button>
-              <div class="dropdown-menu" style="width:55%" aria-labelledby="btnGroupDrop1">
-                <input type="range"  style="width:100%" id="sl" min='10' max='250' value="25">
+              <div class="dropdown-menu drop_menu">
+                <input type="range" class="slider" id="sl" min='10' max='250' value="25">
               </div>
             </div>
         </div>
         <div class="col-sm-6 col-xl-3">
-          <div class="btn-group" style="width:100%" role="group">
-            <button id="order_menu"  style="width:55%;margin:auto" type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+          <div class="btn-group btn_div" role="group">
+            <button id="order_menu" type="button" class="btn btn-outline-dark dropdown-toggle btn_menu" data-toggle="dropdown">
               <b>Arrangement</b>
             </button>
-            <div class="dropdown-menu" style="width:55%;" aria-labelledby="btnGroupDrop1">
+            <div class="dropdown-menu drop_menu">
               <span id="random_btn" class="dropdown-item" >Random</span>
               <div class="dropdown-divider"></div>
               <span id="ascend_btn" class="dropdown-item" >Ascending</span>
@@ -87,12 +93,12 @@
           </div>
         </div>
         <div class="col-sm-6 col-xl-3">
-          <div class="btn-group" style="width:100%" role="group">
-            <button id="speed" style="width:55%;margin:auto" type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false" >
+          <div class="btn-group btn_div" role="group">
+            <button id="speed" type="button" class="btn btn-outline-dark dropdown-toggle btn_menu" data-toggle="dropdown">
               <b>Speed</b>
             </button>
-            <div class="dropdown-menu" style="width:55%" aria-labelledby="btnGroupDrop1">
-              <input type="range" style="width:100%" id="sl1" min='5' max='1000' value="100">
+            <div class="dropdown-menu drop_menu">
+              <input type="range" class="slider" id="sl1" min='5' max='1000' value="100">
             </div>
           </div>
         </div>
@@ -104,7 +110,7 @@
       <hr>
       <h1 class="mt-4">Bubble Sort</h1>
       <div class="row mt-4" >
-        <div class="col-lg-8" style="border-right: 1px solid black;">
+        <div class="col-lg-8 description">
           Bubble sort is a comparison-based algorithm in which each pair of adjacent elements is compared and the elements are swapped if they are not in order. That is, while sorting in ascending order if the current element is bigger than the adjacent right element, then, they are swapped.
         </div>
         <div class="col-lg-4">
@@ -122,7 +128,7 @@
       <hr>
       <h1 class="mt-4">Selection Sort</h1>
       <div class="row mt-4" >
-        <div class="col-lg-8" style="border-right: 1px solid black;">
+        <div class="col-lg-8 description">
           Selection sort is an in-place comparison-based algorithm in which an element is selected and compared with other elements so as to find and place the correct element at its( the selected element's) position. 
         </div>
         <div class="col-lg-4">
@@ -140,7 +146,7 @@
       <hr>
       <h1 class="mt-4">Quick Sort</h1>
       <div class="row mt-4" >
-        <div class="col-lg-8" style="border-right: 1px solid black;">
+        <div class="col-lg-8 description">
           Quick sort is an efficient sorting algorithm and is based on partitioning of array of data into smaller arrays. A large array is partitioned into two arrays one of which holds values smaller than the specified value, say pivot, based on which the partition is made and another array holds values greater than the pivot value. It partitions an array and then calls itself recursively twice to sort the two resulting subarrays. 
         </div>
         <div class="col-lg-4">
@@ -158,7 +164,7 @@
       <hr>
       <h1 class="mt-4">Insertion Sort</h1>
       <div class="row mt-4" >
-        <div class="col-lg-8" style="border-right: 1px solid black;">
+        <div class="col-lg-8 description">
           Insertion sort is an in-place comparison-based sorting algorithm that places an element (starting from the left side of the array towards the right end) at its suitable place among the elements before it( i.e. on left side) in the array, in each iteration.
         </div>
         <div class="col-lg-4">
@@ -175,7 +181,7 @@
       <hr>
       <h1 class="mt-4">Merge Sort</h1>
       <div class="row mt-4" >
-        <div class="col-lg-8" style="border-right: 1px solid black;">
+        <div class="col-lg-8 description">
           Merge sort is a sorting technique based on divide and conquer technique. Merge sort first divides the array into equal halves and then combines them in a sorted manner.
         </div>
         <div class="col-lg-4">
@@ -187,18 +193,21 @@
         </div>
       </div>
     </div>
+
     <footer>
-    <!-- <div class="text-center mt-5" style="border-top:1px solid rgb(177, 177, 177)">Designed and built by Kshitiz Chandra -->
       Designed and built by <strong>Kshitiz Chandra</strong>
       <br>
       <a id="anchor_icon" href="https://linkedin.com/in/chandrakshitiz" target="_blank" class="fab fa-linkedin fa-2x"></a>
       <a id="anchor_icon" href="https://www.github.com/chandrakshitiz" target="_blank" class="fab fa-github fa-2x"></a>
-    <!-- </div> -->
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <script type="module" src="./js/visualizer_js.js"></script>
+    
   </body>
 </html>

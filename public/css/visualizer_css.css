@@ -1,3 +1,35 @@
+html 
+{
+    height: 100%;
+}
+body 
+{
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+.navbar_shadow
+{
+    box-shadow: 0px 3px 6px #888888;
+}
+.logo
+{
+    position:relative;
+    top:10px;
+}
+.navbar-brand
+{
+    margin:0px;
+    font-weight:bold;
+    font-size:1.7rem;
+}
+.canvas_container
+{
+    position: relative;
+    font-size: 1.1rem;
+}
 .canvas_decor
 {
     color:#c2c2c2;
@@ -16,6 +48,13 @@
 {
     background-color:#ececec!important;
 }
+#can_btn
+{
+    position: absolute;
+    left:15px;
+    bottom:-10px;
+    color:black;
+}
 #play_btn
 {
     color:#8E8E93;
@@ -32,36 +71,28 @@
     color:#8E8E93;
     background-color: transparent;
     border:none;
+    padding:10px 10px;
+    position: relative;
+    bottom:16px;
 }
 #regenerate_btn:focus
 {
     outline:none;
     border:none;
 }
-
-
 #fforward_btn
 {
     color:#8E8E93;
     background-color: transparent;
     border:none;
+    padding:10px 10px;
+    position: relative;
+    bottom:16px;
 }
 #fforward_btn:focus
 {
     outline:none;
     border:none;
-}
-html 
-{
-    height: 100%;
-}
-body 
-{
-    position: relative;
-    margin: 0;
-    padding-bottom: 6rem;
-    min-height: 100%;
-    font-family: "Helvetica Neue", Arial, sans-serif;
 }
 #bubble_des,#selection_des,#quick_des,#insertion_des,#merge_des
 {
@@ -77,6 +108,23 @@ body
     color:#df7196 !important;
 }
 
+.btn_div
+{
+    width:100% !important;
+}
+.btn_menu
+{
+    width:55% !important;
+    margin:auto !important;
+}
+.drop_menu
+{
+    width:55%;
+}
+.slider
+{
+    width:100%;
+}
 footer 
 {
     position: absolute;
@@ -98,12 +146,17 @@ footer
     color:rgb(146, 4, 4) !important;
 }
 @media (min-width: 540px){
-.container1 {
+.canvas_container {
     max-width:97vw !important;
     width: 97vw !important;
 }
 }
-
+@media (min-width:992px) {
+    .description
+    {
+        border-right: 1px solid black;
+    }
+}
 @media (max-width: 1200px) {
 
     [class*="col-"] {
