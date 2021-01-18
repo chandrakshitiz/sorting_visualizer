@@ -1,51 +1,40 @@
-function updateCanvasAttributes(arr_obj)
-{
-    $("#myCanvas").attr("width",$("#myCanvas")[0].clientWidth);
-    $("#myCanvas").attr("height",$("#myCanvas")[0].clientHeight);
-    var newht=$("#myCanvas")[0].clientHeight;
-    var prevht=arr_obj.ht;
-    var sf=newht/prevht;
-    arr_obj.ht=newht;
-    arr_obj.sf=sf;
-    
-    arr_obj.arr=normalizeHeight(arr_obj.arr,sf)
-     //normalizeHeight(arr_obj.arr,$("#myCanvas")[0].clientHeight-10)
-    //
-    //
-}
-function normalizeHeight(arr,sf)
+function norm_height(arr,sf)
 {
     for(var i=0;i<arr.length;i++)
     {
         arr[i]=arr[i]*sf;
     }
-    
-    return arr;
 }
+
+function update_canvas_attr(arr_obj)
+{
+    $("#my_canvas").attr("width",$("#my_canvas")[0].clientWidth);
+    $("#my_canvas").attr("height",$("#my_canvas")[0].clientHeight);
+    var newht=$("#my_canvas")[0].clientHeight;
+    var prevht=arr_obj.ht;
+    var sf=newht/prevht;
+    arr_obj.ht=newht;
+    arr_obj.sf=sf;
+    norm_height(arr_obj.arr,sf);
+}
+
 function draw(arr_obj,scale)
 {   
-    updateCanvasAttributes(arr_obj);
+    update_canvas_attr(arr_obj);
     var arr=arr_obj.arr;
-    // for(var i=0;i<arr_obj.arr.length;i++)
-    //     arr.push();
     var colors=arr_obj.colors;
-    var c=$("#myCanvas")[0];
+    var c=$("#my_canvas")[0];
     var ctx=c.getContext("2d");
-    var twd=c.clientWidth-10;
+    var twd=c.clientWidth-10; //total drawing width
     ctx.clearRect(0,0,twd,c.clientHeight);
-    var sp=3;
-    var ext=5;
-    var iwd=(twd-(arr.length+1)*sp)/arr.length;
-    // 
-    var invy=c.clientHeight;
-    
+    var sp=3; //space between bars
+    var ext=5; //extra space on left and right end
+    var iwd=(twd-(arr.length+1)*sp)/arr.length; //individual width of bar
+    var y_max=c.clientHeight;
     for(var i=0;i<arr.length;i++)
     {
-        var x,y;
-        y=2;
-        x=(i+1)*sp+i*iwd+ext;
-        //ctx.beginPath();
-        if(colors[i]=='black'||colors[i]=='#ececec')
+        var x=(i+1)*sp+i*iwd+ext;
+        if(colors[i]==='black'||colors[i]==='#ececec')
         {
             ctx.fillStyle=colors[i];
         }
@@ -56,15 +45,8 @@ function draw(arr_obj,scale)
             my_gradient.addColorStop(1, "red");
             ctx.fillStyle=my_gradient;
         }
-        // //ctx.lineWidth=1;
-        ctx.fillRect(x,invy-arr[i],iwd,arr[i]-1);
-        // ctx.fill();
-        // ctx.strokeStyle="#47424b";//"#a8a8a8";
-        // ctx.stroke();
-        // ctx.beginPath();
-        // ctx.moveTo(x, invy-arr[i]);
-        // ctx.lineTo(x,invy+arr[i]-1);
-        // ctx.stroke();
+        ctx.fillRect(x,y_max-arr[i],iwd,arr[i]-1);
     }
 }
-export {draw,updateCanvasAttributes};
+
+export {draw,update_canvas_attr};

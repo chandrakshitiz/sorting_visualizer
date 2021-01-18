@@ -30,8 +30,8 @@
     
     <!-- Canvas -->
     <div class="container canvas_container mt-4">
-        <canvas id="myCanvas" class="canvas_decor"></canvas> 
-        <i id="can_btn" class="fas fa-toggle-on fa-1x"></i>
+        <canvas id="my_canvas" class="canvas_decor"></canvas> 
+        <i id="canvas_btn" class="fas fa-toggle-on fa-1x"></i>
     </div>
 
     <br>  
@@ -74,7 +74,7 @@
                 <b>Array Size</b>
               </button>
               <div class="dropdown-menu drop_menu">
-                <input type="range" class="slider" id="sl" min='10' max='250' value="25">
+                <input type="range" class="slider" id="array_size_slider" min='10' max='250' value="25">
               </div>
             </div>
         </div>
@@ -94,17 +94,17 @@
         </div>
         <div class="col-sm-6 col-xl-3">
           <div class="btn-group btn_div" role="group">
-            <button id="speed" type="button" class="btn btn-outline-dark dropdown-toggle btn_menu" data-toggle="dropdown">
-              <b>Speed</b>
+            <button type="button" class="btn btn-outline-dark dropdown-toggle btn_menu" data-toggle="dropdown">
+              <b>Delay</b>
             </button>
             <div class="dropdown-menu drop_menu">
-              <input type="range" class="slider" id="sl1" min='5' max='1000' value="100">
+              <input type="range" class="slider" id="delay_slider" min='5' max='1000' value="100">
             </div>
           </div>
         </div>
       </div>
     </div>
-
+  
    <!--Bubble Sort description-->
     <div id="bubble_des" class="container mt-5">
       <hr>
@@ -177,12 +177,13 @@
       </div>
     </div>
 
+    <!-- Merge Sort description -->
     <div id="merge_des" class="container mt-5">
       <hr>
       <h1 class="mt-4">Merge Sort</h1>
       <div class="row mt-4" >
         <div class="col-lg-8 description">
-          Merge sort is a sorting technique based on divide and conquer technique. Merge sort first divides the array into equal halves and then combines them in a sorted manner.
+          Merge sort is a sorting technique based on divide and conquer technique. Merge sort divides the array recursively into equal halves and then combines them in a sorted manner.
         </div>
         <div class="col-lg-4">
           <h4 class="mb-3">Performace :</h4>
@@ -197,8 +198,8 @@
     <footer>
       Designed and built by <strong>Kshitiz Chandra</strong>
       <br>
-      <a id="anchor_icon" href="https://linkedin.com/in/chandrakshitiz" target="_blank" class="fab fa-linkedin fa-2x"></a>
-      <a id="anchor_icon" href="https://www.github.com/chandrakshitiz" target="_blank" class="fab fa-github fa-2x"></a>
+      <a id="refer_icon" href="https://linkedin.com/in/chandrakshitiz" target="_blank" class="fab fa-linkedin fa-2x"></a>
+      <a id="refer_icon" href="https://www.github.com/chandrakshitiz" target="_blank" class="fab fa-github fa-2x"></a>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
