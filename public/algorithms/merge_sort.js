@@ -85,7 +85,6 @@ async function merge_sort(arr_obj)
     var u=arr.length-1;
     await merge_sort_on(arr_obj,0,u);
     draw(arr_obj);
-    await sleep_for(delay);
     activate_btns();
 }
 
