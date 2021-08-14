@@ -18,7 +18,7 @@ function update_canvas_attr(arr_obj)
     norm_height(arr_obj.arr,sf);
 }
 
-function draw(arr_obj,scale)
+function draw(arr_obj)
 {   
     update_canvas_attr(arr_obj);
     var arr=arr_obj.arr;
